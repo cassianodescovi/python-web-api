@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(210, 210, 210);
+}
+
+img {
+    border-radius: 50%;
+}
+
+#logo_python {
+    width: 400px;
+}
+
+#logo_django {
+    width: 200px;
+}
+
+p.principal {
+    border: 1px dashed black;
+}
+
+p.aviso {
+    border: 4px dashed red;
+}
