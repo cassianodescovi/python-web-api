@@ -1,5 +1,6 @@
 import cgi
 from database import conn
+import json
 
 # NEW
 from jinja2 import Environment, FileSystemLoader
@@ -50,6 +51,14 @@ def application(environ, start_response):
             post_list=posts  # NEW
         )
         status = "200 OK"
+
+    elif path == "/api" and method == "GET":
+        headers = [("Content-type", "application/json")]
+        posts = get_posts_from_database()
+        status = "200 OK"
+        start_response(status, headers)
+        body = {"posts": posts}
+        return [json.dumps(body).encode("utf-8")]
 
     elif path.split("/")[-1].isdigit() and method == "GET":
         post_id = path.split("/")[-1]
